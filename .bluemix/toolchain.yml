@@ -1,0 +1,54 @@
+version: 2
+template:
+  name: Build your own toolchain
+  description: empty-toolchain-20210719193149127
+toolchain:
+  name: GitLab DBB toolchain
+services:
+  gitlab00:
+    parameters:
+      extra_capabilities:
+        - capability_id: git.issues
+          display_name: Issues
+          dashboard_url: https://gitlab.com/kmayoz/zopeneditor-sample/issues
+          label: zopeneditor-sample
+          tags:
+            - think
+            - code
+          enabled: true
+          readme: false
+      label: zopeneditor-sample
+      type: link
+      git_id: gitlab
+      api_root_url: https://gitlab.com/api
+      blind_connection: false
+      owner_id: kmayoz
+      repo_url: https://gitlab.com/kmayoz/zopeneditor-sample.git
+      token_url: https://otc-github-consolidated-broker.us-east.devops.cloud.ibm.com/github/token?git_id=gitlab
+      private_repo: true
+      has_issues: true
+      enable_traceability: true
+      authorized: gitlab
+      integration_owner: IBMid-27000759PH
+      repo_name: zopeneditor-sample
+    service_id: gitlab
+  draservicebroker01:
+    parameters:
+      cf_controller: "****"
+      dra_server: "****"
+      dlms_server: "****"
+      dashboard_url: "****"
+      env_id: "****"
+    service_id: draservicebroker
+  customtool02:
+    parameters:
+      imageUrl: ""
+      label: Wazi CodeReady Workspaces
+      type: Wazi CodeReady Workspaces
+      lifecyclePhase: CODE
+      documentationUrl: https://ibm.biz/wazi-crw-doc
+      name: Wazi CodeReady Workspaces
+      dashboard_url: https://codeready-kristina.apps.nazare-bell.os.fyre.ibm.com/dashboard/#/get-started?tab=get-started
+      description: Cloud IDE for zOS languages
+      additional-properties: ""
+    service_id: customtool
